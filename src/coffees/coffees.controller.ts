@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   HttpStatus,
@@ -30,6 +31,11 @@ export class CoffeesController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() body) {
-    return `new thing updated from ${id}`;
+    return ` thing updated from ${id}, with ${body.email}`;
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return `thing deleted from ${id}`;
   }
 }
